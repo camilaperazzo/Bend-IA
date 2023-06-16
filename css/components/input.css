@@ -1,0 +1,36 @@
+.input-container {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 2.1875rem;
+}
+
+.label {
+	padding-bottom: 0.625rem;
+	font-family: "DM Sans Bold";
+}
+
+.input {
+	height: 3.125rem;
+	border-radius: 0.625rem;
+	border: 0.0625rem solid var(--secondary-pink);
+	outline-color: var(--primary-pink);
+	padding: 10px 20px;
+}
+
+.input.select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(../img/select-angle-down.svg) no-repeat center right
+		var(--neutral-0);
+}
+
+@media (min-width: 1200px) {
+	.form .two-col .input-container {
+		width: 47.5%;
+	}
+
+	.form .three-col .input-container {
+		width: 30%;
+	}
+}

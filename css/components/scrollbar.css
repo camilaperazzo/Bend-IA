@@ -1,0 +1,22 @@
+::-webkit-scrollbar-track {
+	background-color: var(--neutral-100);
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--quaternary-pink);
+}
+
+.home .left-content {
+	scrollbar-base-color: var(--quaternary-pink);
+	scrollbar-base-color: var(--quaternary-pink);
+	scrollbar-3dlight-color: var(--quaternary-pink);
+	scrollbar-highlight-color: var(--quaternary-pink);
+	scrollbar-track-color: var(--neutral-100);
+	scrollbar-arrow-color: var(--primary-pink);
+	scrollbar-shadow-color: var(--quaternary-pink);
+}
