@@ -21,7 +21,7 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(../img/select-angle-down.svg) no-repeat center right
+	background: url("../../img/select-angle-down.svg") no-repeat center right
 		var(--neutral-0);
 }
 
