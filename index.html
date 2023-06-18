@@ -36,6 +36,7 @@
 								type="text"
 								name="sample-code-number"
 								class="input"
+								required
 							/>
 						</div>
 
@@ -47,6 +48,7 @@
 								<select
 									name="agglomerate-thickness"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -70,6 +72,7 @@
 								<select
 									name="cell-size-uniformity"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -95,6 +98,7 @@
 								<select
 									name="cell-shape-uniformity"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -118,6 +122,7 @@
 								<select
 									name="marginal-adherence"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -145,6 +150,7 @@
 								<select
 									name="one-size-epithelial-cell"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -165,7 +171,11 @@
 								<label for="naked-cores" class="label"
 									>Núcleos nus</label
 								>
-								<select name="naked-cores" class="input select">
+								<select
+									name="naked-cores"
+									class="input select"
+									required
+								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
 									<option value="3" class="option">3</option>
@@ -187,7 +197,11 @@
 								<label for="chromatin" class="label"
 									>Cromatina Insípida</label
 								>
-								<select name="chromatin" class="input select">
+								<select
+									name="chromatin"
+									class="input select"
+									required
+								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
 									<option value="3" class="option">3</option>
@@ -210,6 +224,7 @@
 								<select
 									name="normal-nucleoli"
 									class="input select"
+									required
 								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
@@ -230,7 +245,11 @@
 								<label for="mitosis" class="label"
 									>Mitoses</label
 								>
-								<select name="mitosis" class="input select">
+								<select
+									name="mitosis"
+									class="input select"
+									required
+								>
 									<option value="1" class="option">1</option>
 									<option value="2" class="option">2</option>
 									<option value="3" class="option">3</option>
@@ -257,10 +276,12 @@
 			<div class="right-content"></div>
 		</div>
 
-		<div class="loading">
-			<figure class="gif">
-				<img src="./img/pink-loading.gif" />
-			</figure>
+		<div class="modal">
+			<div class="loading">
+				<figure class="gif">
+					<img src="./img/pink-loading.gif" />
+				</figure>
+			</div>
 		</div>
 
 		<script type="module" src="./js/main.js"></script>
