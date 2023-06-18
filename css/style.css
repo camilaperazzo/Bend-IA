@@ -4,7 +4,10 @@
 @import "./index.css";
 @import "./fonts.css";
 
+@import "./components/button.css";
 @import "./components/form.css";
 @import "./components/input.css";
-@import "./components/scrollbar.css";
+@import "./components/modal.css";
 @import "./components/loading.css";
+@import "./components/scrollbar.css";
+@import "./components/result.css";
