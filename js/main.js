@@ -1,4 +1,4 @@
-import verifyBreastType from "./api/breast-type.result.js";
+import verifyBreastCancerType from "./api/breast-cancer-type.result.js";
 import initModal from "./components/modal.js";
 
 const form = document.querySelector(".form");
@@ -8,7 +8,7 @@ form.addEventListener("submit", async e => {
 	e.preventDefault();
 	modal.classList.add("active");
 
-	const breastInfo = {
+	const breastCancerInfo = {
 		sampleCodeNumber:
 			document.getElementsByName("sample-code-number")[0].value,
 		agglomerateThickness: document.getElementsByName(
@@ -31,9 +31,12 @@ form.addEventListener("submit", async e => {
 		mitosis: document.getElementsByName("mitosis")[0].value,
 	};
 
-	const breastResult = await verifyBreastType(breastInfo);
+	const breastCancerResult = await verifyBreastCancerType(breastCancerInfo);
 
-	if (breastResult) {
-		window.setTimeout(() => initModal(breastResult), 100 * 6);
+	if (breastCancerResult) {
+		window.setTimeout(
+			() => initModal(breastCancerInfo, breastCancerResult),
+			100 * 6
+		);
 	}
 });

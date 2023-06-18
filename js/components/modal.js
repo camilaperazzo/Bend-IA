@@ -1,4 +1,9 @@
-export default function initModal({ hitPercentage, result, sampleCode }) {
+import downloadPDF from "./download.js";
+
+export default function initModal(
+	breastCancerInfo,
+	{ hitPercentage, result, sampleCode }
+) {
 	const modal = document.querySelector(".modal");
 
 	function closeModal() {
@@ -6,6 +11,7 @@ export default function initModal({ hitPercentage, result, sampleCode }) {
 		modal.querySelector(".loading").style.display = "block";
 		modal.classList.remove("active");
 	}
+
 	const resultHTMLStructure = `
             <div class="top-section">
                 <div class="close-button-container">
@@ -32,7 +38,7 @@ export default function initModal({ hitPercentage, result, sampleCode }) {
                         </p>
                     </div>
 
-                    <button class="download-button" onclick="downloadResult()">
+                    <button class="download-button">
                         <img
                             src="./img/download.svg"
                             alt="download button"
@@ -62,4 +68,8 @@ export default function initModal({ hitPercentage, result, sampleCode }) {
 			.querySelector(".result .close-button")
 			.addEventListener("click", closeModal);
 	}
+
+	document
+		.querySelector(".result .download-button")
+		.addEventListener("click", () => downloadPDF(breastCancerInfo));
 }
