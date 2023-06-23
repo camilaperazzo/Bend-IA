@@ -10,27 +10,25 @@ CORS(app)
 def predict():
     dados = request.get_json()
 
-    if 'sampleCodeNumber' in dados and "cellSizeUniformity" in dados and 'cellShapeUniformity' in dados:
-        parametro1 = dados["sampleCodeNumber"]
-        parametro2 = dados["cellSizeUniformity"]
-        parametro3 = dados["cellShapeUniformity"]
+    if 'sampleCodeNumber' in dados and "cellSizeUniformity" in dados and 'cellShapeUniformity' in dados and "agglomerateThickness" in dados and "marginalAdherence" in dados and "oneSizeEpithelialCell" in dados and "nakedCores" in dados and "chromatin" in dados and "normalNucleoli" in dados and "mitosis" in dados:
+        sampleCodeNumber = dados["sampleCodeNumber"]
+        cellSizeUniformity = dados["cellSizeUniformity"]
+        cellShapeUniformity = dados["cellShapeUniformity"]
+        agglomerateThickness = dados["agglomerateThickness"]
+        marginalAdherence = dados["marginalAdherence"]
+        oneSizeEpithelialCell = dados["oneSizeEpithelialCell"]
+        nakedCores = dados["nakedCores"]
+        chromatin = dados["chromatin"]
+        normalNucleoli = dados["normalNucleoli"]
+        mitosis = dados["mitosis"]
 
-        # Lógica de negócio
-        resultado = int(parametro2) + int(parametro3)
+        # Business Logi
 
-        percent = 0
-        if resultado == 2:
-            percent = 50
-        elif resultado == 4:
-            percent = 90
-        else:
-            percent = 0
-
-        # Resposta da APIS
+        # API Response
         return {
-            'sampleCode': parametro1,
-            'result': resultado,
-            'hitPercentage': percent
+            'sampleCode': sampleCodeNumber,
+            'hitPercentage': 95,
+            'result': "Benign",
         }
     else:
         return {'error': 'Campos inválidos no JSON recebido'}
