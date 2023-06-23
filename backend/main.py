@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 import json
+import predict as pred
 
 app = Flask(__name__)
 CORS(app)
@@ -8,27 +9,27 @@ CORS(app)
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
-    dados = request.get_json()
+    data = request.get_json()
 
-    if 'sampleCodeNumber' in dados and "cellSizeUniformity" in dados and 'cellShapeUniformity' in dados and "agglomerateThickness" in dados and "marginalAdherence" in dados and "oneSizeEpithelialCell" in dados and "nakedCores" in dados and "chromatin" in dados and "normalNucleoli" in dados and "mitosis" in dados:
-        sampleCodeNumber = dados["sampleCodeNumber"]
-        cellSizeUniformity = dados["cellSizeUniformity"]
-        cellShapeUniformity = dados["cellShapeUniformity"]
-        agglomerateThickness = dados["agglomerateThickness"]
-        marginalAdherence = dados["marginalAdherence"]
-        oneSizeEpithelialCell = dados["oneSizeEpithelialCell"]
-        nakedCores = dados["nakedCores"]
-        chromatin = dados["chromatin"]
-        normalNucleoli = dados["normalNucleoli"]
-        mitosis = dados["mitosis"]
+    if 'sampleCodeNumber' in data and "cellSizeUniformity" in data and 'cellShapeUniformity' in data and "agglomerateThickness" in data and "marginalAdherence" in data and "oneSizeEpithelialCell" in data and "bareNuclei" in data and "chromatin" in data and "normalNucleoli" in data and "mitosis" in data:
+        sample_code = data["sampleCodeNumber"]
 
-        # Business Logi
+        # Business Logic
+        result = pred.predict_sample(data["agglomerateThickness"], 
+                                                    data["cellSizeUniformity"], 
+                                                    data["cellShapeUniformity"], 
+                                                    data["marginalAdherence"], 
+                                                    data["oneSizeEpithelialCell"], 
+                                                    data["bareNuclei"], 
+                                                    data["chromatin"], 
+                                                    data["normalNucleoli"], 
+                                                    data["mitosis"])
 
         # API Response
         return {
-            'sampleCode': sampleCodeNumber,
+            'sampleCode': sample_code,
             'hitPercentage': 95,
-            'result': "Benign",
+            'result': result,
         }
     else:
         return {'error': 'Campos inválidos no JSON recebido'}

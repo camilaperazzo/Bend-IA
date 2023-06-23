@@ -9,7 +9,7 @@ const FIELD_NAMES = [
 	"cellShapeUniformity",
 	"marginalAdherence",
 	"oneSizeEpithelialCell",
-	"nakedCores",
+	"bareNuclei",
 	"chromatin",
 	"normalNucleoli",
 	"mitosis",
