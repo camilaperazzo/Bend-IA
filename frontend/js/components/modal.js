@@ -25,7 +25,7 @@ function createResult(breastCancerInfo, { sampleCode, result, hitPercentage }) {
 
                 <div class="result-info-container">
                     <div class="result-info" id="resultInfo">
-                        <h1>Resultado - <b>${sampleCode}</b></h1>
+                        <h1>Resultado - Amostra <b>${sampleCode}</b></h1>
                         <p>
                             Após análise há uma chance de
                             <b>${hitPercentage}%</b> do câncer ser

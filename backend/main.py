@@ -28,7 +28,7 @@ def predict():
         # API Response
         return {
             'sampleCode': sample_code,
-            'hitPercentage': 95,
+            'hitPercentage': 95.08,
             'result': result,
         }
     else:
