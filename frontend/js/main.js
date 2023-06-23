@@ -1,9 +1,7 @@
 import verifyBreastCancerType from "./api/breast-cancer-type.result.js";
-import initModal from "./components/modal.js";
+import { closeModal, createResult, openModal } from "./components/modal.js";
 
 const form = document.querySelector(".form");
-const modal = document.querySelector(".modal");
-
 const FIELD_NAMES = [
 	"sampleCodeNumber",
 	"agglomerateThickness",
@@ -19,7 +17,7 @@ const FIELD_NAMES = [
 
 form.addEventListener("submit", async e => {
 	e.preventDefault();
-	modal.classList.add("active");
+	openModal();
 
 	let breastCancerInfo = {};
 
@@ -29,7 +27,11 @@ form.addEventListener("submit", async e => {
 		);
 	});
 
-	const breastCancerResult = await verifyBreastCancerType(breastCancerInfo);
-
-	initModal(breastCancerInfo, breastCancerResult);
+	verifyBreastCancerType(breastCancerInfo)
+		.then(response => createResult(breastCancerInfo, response))
+		.catch(error => {
+			closeModal();
+			alert("Invalid Data, please, look at your responses and try again");
+			console.error(error);
+		});
 });

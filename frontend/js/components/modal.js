@@ -1,16 +1,19 @@
 import downloadPDF from "./download.js";
 
-export default function initModal(
-	breastCancerInfo,
-	{ hitPercentage, result, sampleCode }
-) {
+function closeModal() {
 	const modal = document.querySelector(".modal");
+	const result = document.querySelector(".result");
 
-	function closeModal() {
-		document.querySelector(".result").remove();
+	if (result) {
+		result.remove();
 		modal.querySelector(".loading").style.display = "block";
-		modal.classList.remove("active");
 	}
+
+	modal.classList.remove("active");
+}
+
+function createResult(breastCancerInfo, { sampleCode, result, hitPercentage }) {
+	const modal = document.querySelector(".modal");
 
 	const resultHTMLStructure = `
             <div class="top-section">
@@ -26,7 +29,7 @@ export default function initModal(
                         <p>
                             Após análise há uma chance de
                             <b>${hitPercentage}%</b> do câncer ser
-                            <b>${result == 2 ? "BENIGNO" : "MALIGNO"}</b>
+                            <b>${result}</b>
                         </p>
                         <p>
                             A única forma concreta de confirmar se um tumor é
@@ -73,3 +76,9 @@ export default function initModal(
 		.querySelector(".result .download-button")
 		.addEventListener("click", () => downloadPDF(breastCancerInfo));
 }
+
+function openModal() {
+	document.querySelector(".modal").classList.add("active");
+}
+
+export { closeModal, createResult, openModal };
