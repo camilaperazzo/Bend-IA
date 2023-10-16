@@ -1,4 +1,15 @@
-# Bend
+# Bend 
+
+## Description
+
+The AI project is utilizing a decision tree algorithm to assess the likelihood of breast cancer. With a user-friendly interface, it employs a '.h5' file for efficient model storage and retrieval, enabling accurate and accessible predictions.
+
+## Contributors
+
+- Camila Perazzo
+- Maurílio Roberto
+- Mylena Rodrigues
+- Sarah Silva
 
 ### Download dependencies
 
